@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cash machine {% block title %} {% endblock %}</title>
+        <link href="{% static 'css/vendor/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+    {% block stylecss %}
+    {% endblock %}
+        <script src="{% static 'js/vendor/jquery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    {% block javascripts %}
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

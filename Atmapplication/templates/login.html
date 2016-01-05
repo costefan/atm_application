@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block javascripts %}
+    <script src="{% static 'js/vendor/jquery.maskedinput.min.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <div class="row">
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+        <h1>Card number</h1>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ error }}
+            <div class="form-group container">
+                {{ form.non_fields_errors }}
+                <label for="{{ form.number.id_for_label }}"> Enter </label>
+                {{ form.number }}
+            </div>
+            {% include 'keyboard.html' %}
+        </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}
