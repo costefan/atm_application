@@ -1,8 +1,6 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from .forms import CardNumberForm
-from django.http import JsonResponse
 from atm_interface.models import Card
 
 
@@ -21,7 +19,7 @@ class LoginView(TemplateView):
             try:
                 card = Card.objects.get(number=number)
             except Card.DoesNotExist:
-                return render(request, self.template_name, {'form': form, 'error': 'Invalid card number'})
+                return render(request, self.template_name, {'form': form, 'message': 'Invalid card number'})
 
             if not card.blocked:
                 request.session['card_id'] = card.id
@@ -29,7 +27,7 @@ class LoginView(TemplateView):
                 return redirect('/pin')
             return redirect('/blocked')
 
-        return render(request, self.template_name, {'form': form, 'error': 'Invalid card number'})
+        return render(request, self.template_name, {'form': form, 'message': 'Invalid card number'})
 
 
 class PinView(TemplateView):
@@ -47,7 +45,7 @@ class PinView(TemplateView):
                 request.session['pin_required'] = True
                 request.session.pop('incorrect_times')
                 request.session.modified = True
-                return render(request, self.template_name, {'message': 'OK'})
+                return redirect('/interface/menu/')
             else:
                 return render(request, self.template_name, {'message': 'False'})
         else:

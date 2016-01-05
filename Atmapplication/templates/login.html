@@ -11,7 +11,7 @@
         <h1>Card number</h1>
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
-            {{ error }}
+            {{ message }}
             <div class="form-group container">
                 {{ form.non_fields_errors }}
                 <label for="{{ form.number.id_for_label }}"> Enter </label>

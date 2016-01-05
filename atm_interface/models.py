@@ -17,6 +17,9 @@ class Person(models.Model):
     age = models.IntegerField()
     city = models.CharField(max_length=20)
 
+    def __str__(self):
+        return 'Person {}'.format(self.name)
+
 
 class Card(models.Model):
     """
@@ -24,6 +27,7 @@ class Card(models.Model):
 
     Related to Person model
     """
+
     number = models.CharField(max_length=16, validators=[MinLengthValidator(16)], null=False)
     pin = models.CharField(max_length=4, validators=[MinLengthValidator(4)], null=False)
     cvv = models.CharField(max_length=3, validators=[MinLengthValidator(3)], null=False)

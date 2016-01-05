@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^$', LoginView.as_view(), name='login'),
     url(r'^pin/$', PinView.as_view(), name='pin'),
     url(r'^blocked/$', TemplateView.as_view(template_name='blocked.html'), name='blocked'),
-    # url(r'^interface/', include('atm_interface.urls')),
+    url(r'^interface/', include('atm_interface.urls', namespace='interface')),
     url(r'^admin/', admin.site.urls),
 ]
