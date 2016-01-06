@@ -1,16 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block javascripts %}
-{% endblock %}
-{% block title %} MENU {% endblock %}
+{% block title %} Balance {% endblock %}
 {% block content %}
-    <div class="row">
-    <div class="container">
-        <div class="col-md-4 col-md-offset-4">
             {{ card.number }}
             {{ time }}
             {{ card.cash }}
-        </div>
-    </div>
-    </div>
+    {% include 'navigation.html' %}
 {% endblock %}

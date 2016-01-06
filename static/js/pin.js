@@ -3,13 +3,11 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $("input[type=button]").on('click', function() {
-        if ($("#password").val().length < 4) {
-            if (this.value !== 'CLEAR') {
-                $("#password").val($("#password").val() + this.value);
-            }
-            else {
-                $("#password").val('');
-            }
+        if (this.value === 'CLEAR') {
+           $("#password").val('');
+        }
+        else if ($("#password").val().length < 4) {
+            $("#password").val($("#password").val() + this.value);
         }
     });
 });

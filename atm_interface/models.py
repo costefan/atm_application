@@ -33,7 +33,7 @@ class Card(models.Model):
     cvv = models.CharField(max_length=3, validators=[MinLengthValidator(3)], null=False)
     blocked = models.BooleanField(default=False)
     cash = models.IntegerField(default=0, null=False)
-    person_id = models.ForeignKey(
+    person = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
         null=True
@@ -43,11 +43,11 @@ class Card(models.Model):
         return 'Card {}'.format(self.number)
 
     class Meta:
-        ordering = ['id']
+        ordering = ['cash']
 
 
 class Operation(models.Model):
-    card_id = models.ForeignKey(Card)
+    card = models.ForeignKey(Card)
     time = models.TimeField(null=False)
     code = models.IntegerField(null=False)
     cash = models.IntegerField(default=0)

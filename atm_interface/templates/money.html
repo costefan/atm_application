@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block javascripts %}
+    <script src="{% static 'js/money.js' %}"></script>
 {% endblock %}
-{% block title %} MENU {% endblock %}
 {% block content %}
-    <div class="row">
-    <div class="container">
-        <div class="col-md-4 col-md-offset-4">
-        <h1> MENU </h1>
-            <ul>
-                <li><a href="#"> balance </a></li>
-                <li><a href="#"> withdraw money </a></li>
-                <li><a href="#"> exit </a></li>
-            </ul>
+    <form action="{% url 'interface:money' %}" method="post">
+    {% csrf_token %}
+        {{ message }}
+        <div class="form-group">
+            <label for="money"> Money </label>
+            <input id="money" name="money" type="text" class="form-control"/>
         </div>
-    </div>
-    </div>
+        {% include 'keyboard.html' %}
+    </form>
+    {% include 'navigation.html' %}
 {% endblock %}

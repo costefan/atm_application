@@ -1,0 +1,65 @@
+[
+  {
+    "model": "atm_interface.Person",
+    "pk": 1,
+    "fields": {
+      "name": "John Lenon",
+      "sex": "M",
+      "age": 16,
+      "city": "Kiev"
+    }
+  },
+ {
+    "model": "atm_interface.Person",
+    "pk": 2,
+    "fields": {
+      "name": "Alexander Malkovic",
+      "sex": "M",
+      "age": 18,
+      "city": "Kiev"
+    }
+  },
+   {
+    "model": "atm_interface.Person",
+    "pk": 3,
+    "fields": {
+      "name": "July Fedorova",
+      "sex": "F",
+      "age": 20,
+      "city": "Kiev"
+    }
+  },
+  {
+    "model": "atm_interface.Card",
+    "pk": 1,
+    "fields": {
+      "number": "1111111111111111",
+      "pin": "1111",
+      "cvv": "111",
+      "cash": 10000,
+      "person": 1
+    }
+  },
+  {
+    "model": "atm_interface.Card",
+    "pk": 2,
+    "fields": {
+      "number": "1212121212121212",
+      "pin": "1212",
+      "cvv": "121",
+      "cash": 11000,
+      "person": 2
+    }
+  },
+    {
+    "model": "atm_interface.Card",
+    "pk": 3,
+    "fields": {
+      "number": "2222222222222222",
+      "pin": "2222",
+      "cvv": "222",
+      "cash": 12000,
+      "person": 3
+    }
+  }
+]

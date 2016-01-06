@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block javascripts %}
+    <script src="{% static 'js/money.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <h1>Not enough money</h1>
+    {% include 'navigation.html' %}
+{% endblock %}
