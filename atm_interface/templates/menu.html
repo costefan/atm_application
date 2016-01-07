@@ -2,10 +2,20 @@
 {% load staticfiles %}
 {% block title %} Menu {% endblock %}
 {% block content %}
-        <h1> MENU </h1>
-            <ul>
-                <li><a href="{% url 'interface:balance' %}"> balance </a></li>
-                <li><a href="{% url 'interface:money' %}"> withdraw money </a></li>
-                <li><a href="#"> exit </a></li>
-            </ul>
+    <h1> MENU </h1>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <a href="{% url 'interface:balance' %}" class="btn btn-default"> Balance </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href="{% url 'interface:money' %}" class="btn btn-default"> Withdraw money </a>
+        </div>
+        <div class="btn-group" role="group">
+            <form action="{% url 'interface:exit' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Exit" class="btn btn-default"/>
+            </form>
+        </div>
+    </div>
 {% endblock %}
+

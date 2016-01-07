@@ -2,8 +2,9 @@
 {% load staticfiles %}
 {% block title %} Balance {% endblock %}
 {% block content %}
-            {{ card.number }}
-            {{ time }}
-            {{ card.cash }}
+    <h1>Information</h1>
+            <span><strong>Your card number:  </strong></span>{{ card.number }} <br />
+            <span><strong>Time:  </strong></span>{{ time }} <br />
+            <span><strong>Your cash:  </strong></span>{{ card.cash }}
     {% include 'navigation.html' %}
 {% endblock %}

@@ -61,7 +61,7 @@ class PinView(TemplateView):
                 request.session.modified = True
                 return redirect('/interface/menu/')
             else:
-                return render(request, self.template_name, {'message': 'False'})
+                return render(request, self.template_name, {'message': 'Incorrect pin, please try again'})
         else:
             Card.objects.filter(pk=card.id).update(blocked=True)
             return redirect('/blocked')

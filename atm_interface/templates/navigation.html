@@ -1,2 +1,11 @@
-<a href="{% url 'interface:menu' %}">Back to menu</a>
-<a href="#">Exit</a>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <a href="{% url 'interface:menu' %}" class="btn btn-default">Back to menu</a>
+    </div>
+    <div class="btn-group" role="group">
+        <form action="{% url 'interface:exit' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Exit" class="btn btn-default"/>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block content %}
-    {{ operation.cash }}
+    <h1>Thank you</h1>
+    <h3>Information about operation</h3>
+    <span><strong>Your card number:  </strong></span>{{ card.number }} <br />
+    <span><strong>Your withdraw:  </strong></span>{{ operation.cash }} <br />
+    <span><strong>Time of operation:  </strong></span>{{ operation.time }} <br />
+    <span><strong>Cash on your card:  </strong></span>{{ card.cash }} <br />
     {% include 'navigation.html' %}
 {% endblock %}
